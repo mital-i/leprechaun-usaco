@@ -9,16 +9,18 @@ for i in range(n):
 li = li+li+li
 
 def prefix_sum(li, n): 
-    pli = []
     sum = 0
-    for i in li: 
-        sum+=i
-        pli+=[sum]
-
     max_sum = -99999999999999
-    for i in range(len(li)-n):
-        for j in range(i+1, i+1+n):
-            max_sum = max(max_sum, pli[j]-pli[i])
+    for i in range(n):
+        sum += li[i]
+        #print(sum)
+        if li[i] > sum:
+            sum = li[i]
+            #print()
+            #print(sum)
+            #print()
+        max_sum = max(max_sum, sum)
+    
     return max_sum
 
 def find_max_sum(li, n): 
