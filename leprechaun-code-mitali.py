@@ -9,17 +9,24 @@ for i in range(n):
 li = li+li+li
 
 def prefix_sum(li, n): 
-    sum = 0
+    temp_sum = 0
     max_sum = -99999999999999
-    for i in range(n):
-        sum += li[i]
-        #print(sum)
-        if li[i] > sum:
-            sum = li[i]
+    counter = n
+    for i in range(len(li)):
+        temp_sum += li[i]
+        counter+=1
+        #print(temp_sum)
+        if li[i] > temp_sum:
+            temp_sum = li[i]
             #print()
-            #print(sum)
+            #print(temp_sum)
             #print()
-        max_sum = max(max_sum, sum)
+        if counter >= n: 
+            counter = 0
+            temp_sum = li[i]
+            
+        #print(i, li, counter, temp_sum, max_sum)
+        max_sum = max(max_sum, temp_sum)
     
     return max_sum
 
